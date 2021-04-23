@@ -2,7 +2,7 @@ import { gql } from "apollo-server-express";
 
 export const typeDefs = gql`
   type Listing {
-    _id: ID!
+    id: ID!
     title: String!
     image: String!
     address: String!
@@ -10,7 +10,7 @@ export const typeDefs = gql`
     numOfGuests: Int!
     numOfBeds: Int!
     numOfBaths: Int!
-    rating: Int!
+    rating: Float!
   }
 
   type Query {

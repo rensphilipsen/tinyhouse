@@ -9,7 +9,6 @@ export const listingResolvers: IResolvers = {
       _args: {},
       { db }: { db: Database }
     ): Promise<Listing[]> => {
-      console.log(db.listings.find({}).toArray());
       return await db.listings.find({}).toArray();
     },
   },
@@ -29,5 +28,8 @@ export const listingResolvers: IResolvers = {
 
       return res.value;
     },
+  },
+  Listing: {
+    id: (listing: Listing): string => listing._id.toString(),
   },
 };
