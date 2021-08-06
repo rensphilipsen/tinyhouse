@@ -33,9 +33,13 @@ import "./styles/index.css";
 
 const httpLink = new HttpLink({ uri: "/api" });
 const authMiddleware = new ApolloLink((operation, forward) => {
-  operation.setContext({
-    headers: { authorization: localStorage.getItem("token") || null },
-  });
+  operation.setContext(({ headers = {} }) => ({
+    headers: {
+      ...headers,
+      "X-CSRF-TOKEN": sessionStorage.getItem("token") || "",
+    },
+  }));
+
   return forward(operation);
 });
 const client = new ApolloClient({
