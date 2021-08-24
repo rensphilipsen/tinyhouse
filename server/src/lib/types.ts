@@ -33,7 +33,7 @@ export interface Booking {
   checkOut: string;
 }
 
-export interface Listing {
+export interface Listing { 
   _id: ObjectId;
   title: string;
   description: string;
@@ -45,9 +45,10 @@ export interface Listing {
   admin: string;
   city: string;
   bookings: ObjectId[];
-  bookingsIndex: BookingsIndex;
+  bookingsIndex: BookingsIndexYear;
   price: number;
   numOfGuests: number;
+  authorized?: boolean;
 }
 
 export interface User {

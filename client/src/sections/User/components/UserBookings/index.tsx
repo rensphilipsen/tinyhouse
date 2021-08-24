@@ -56,7 +56,7 @@ export const UserBookings = ({
     />
   ) : null;
 
-  const userBookingsElement = userBookings ? (
+  const userBookingsElement = userBookingsList ? (
     <div className="user-bookings">
       <Title level={4} className="user-bookings__title">
         Bookings
